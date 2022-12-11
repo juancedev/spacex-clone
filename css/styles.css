@@ -112,16 +112,48 @@ section {
     font-size: 22px;
     margin-bottom: 5px;
     font-weight: 300;
+    animation: fadeInUp 0.5s ease-in-out ;
 }
 
 .section-inner h2 {
     font-size: 50px;
     font-weight: 700;
     margin-bottom: 20px;
+    animation: fadeInUp 0.5s ease-in-out 0.2s;
+    animation-fill-mode: both; //Stop from showing at start
 }
+
+.section-inner a {
+    animation: fadeInUp 0.5s ease-in-out 0.4s;
+    animation-fill-mode: both; /*Stop from showing at start*/
+}
+
+/*------ Backgrounds ------*/
 
 .section-a {
     background-image: url(../img/section-a.webp);
+}
+
+.section-b {
+    background-image: url(../img/section-b.webp);
+}
+
+.section-c {
+    background-image: url(../img/section-c.webp);
+}
+
+.section-d {
+    background-image: url(../img/section-d.webp);
+    height: 1080;
+
+}
+
+.section-e {
+    background-image: url(../img/section-e.webp);
+}
+
+.section-f {
+    background-image: url(../img/section-f.webp);
 }
 
 .btn {
@@ -144,6 +176,14 @@ section {
     color: #000;
 }
 
+.scroll-arrow {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeBounce 5s infinite;
+}
+
 .btn .hover {
     position: absolute;
     top: 0;
@@ -161,3 +201,101 @@ section {
     transform: translateY(0);
 }
 
+/*------ Footer ------*/
+
+footer {
+    position: relative;
+    padding: 55px 0;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer ul li {
+    margin-right: 30px;
+    color: #aaa;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 2.5;
+}
+
+footer ul li a {
+    color: #fff;
+    transition: color 0.6s;
+}
+
+footer ul li a:hover {
+    color: #aaa;
+}
+
+/*------- Animations -------*/
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(140px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeBounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    
+    40% {
+        opacity: 1;
+        transform: translateY(0);
+        
+    }
+}
+
+/*------ Media Queries ------*/
+
+@media (max-width: 960px) {
+    /* Hide desktop menu */
+    .desktop-main-menu {
+        display: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .section-inner {
+        bottom: 75px;
+        left: 20px;
+    }
+
+    .section-inner h2 {
+        font-size: 40px;
+    }
+
+    footer ul li:first-child {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    footer ul li {
+        margin-right: 15px;
+    }
+
+    .logo {
+        width: 150px;
+        margin: auto;
+    }
+}
