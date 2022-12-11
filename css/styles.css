@@ -232,6 +232,133 @@ footer ul li a:hover {
     color: #aaa;
 }
 
+/* Hamburger Menu*/
+
+.hamburger {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    z-index: 10;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transition: all 0.5s;
+}
+
+.hamburger-middle {
+    transform: translateY(5px);
+}
+
+.hamburger-bottom {
+    transform: translateY(10px);
+} 
+
+/*----- Overlay -----*/
+
+.overlay-show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 3;
+}
+
+/*------ Stop boyd scroll ------*/
+.stop-scrolling {
+    overflow: hidden;
+}
+
+/*------ Hide mobile main menu item ------*/
+.mobile-only {
+    display: none;
+}
+
+
+/*------ Transition to X when open ------*/
+.open {
+    transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+    display: none;
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+/*------ Mobile menu ------*/
+
+.mobile-main-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background-color: #000;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/*------ Bring menu from right ------*/
+
+.show-menu {
+    transform: translateX(0);
+}
+
+.mobile-main-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding: 50px;
+    width: 100%;
+}
+
+.mobile-main-menu ul li {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-bottom: 1px #555 dotted;
+    width: 100%;
+    text-align: right;
+    padding-bottom: 8px;
+}
+
+.mobile-main-menu ul li a {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.mobile-main-menu ul li a:hover {
+    color: #aaa;
+}
+
+
+
 /*------- Animations -------*/
 
 @keyframes fadeInUp {
@@ -269,6 +396,11 @@ footer ul li a:hover {
     /* Hide desktop menu */
     .desktop-main-menu {
         display: none;
+    }
+
+    /*------ Show main mobile item ------*/
+    .mobile-only {
+        display: block;
     }
 }
 
